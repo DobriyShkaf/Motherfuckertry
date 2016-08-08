@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id='canvas' ></canvas>
+<script src="main.js"></script>
+<script src = "loop.js"></script>
+<script src="inherit.js"></script>
+<script></script>
+
+
+
+<script>
+    var canvas = document.getElementById("canvas"),
+            ctx  = canvas.getContext('2d'),
+            bf = new Image();
+            bf.src = 'bf.png'
+    canvas.width = 1050;
+    canvas.height = 1050;
+    ctx.strokeRect(15, 15, 640, 480);
+    ctx.strokeRect(18, 18, 634, 474);
+    var SCREEN_WIDTH, SCREEN_HEIGHT;
+    SCREEN_HEIGHT = 630;
+    SCREEN_WIDTH = 470;
+    var GAMERECT = ctx.fillRect(20, 20, SCREEN_HEIGHT, SCREEN_WIDTH);
+    function Gameitems() {
+        this.items = {}
+    };
+    Gameitems.prototype.render = function (ctx) {
+      //render object in canvas
+    };
+    Gameitems.prototype.move = function (dt) {
+        //movement lol
+    };
+    Gameitems.prototype.onCollisionWithBall = function (ball) {
+        //collision detecter
+    };
+
+
+
+        function Bat (POS_X,POS_Y,WIDTH,HEIGHT) {//class Bat
+            this.coordinates = {x : POS_X, y: POS_Y};
+            this.WIDTH = WIDTH;
+            this.HEIGHT = HEIGHT;
+        };
+        Inherit(Bat,Gameitems);
+        function Ball(POS_y,POS_x,WIDTH,HEIGHT,speed,d_x,d_y) {
+            this.position = {x: POS_x,y : POS_y};
+            this.speed = speed || 0.5;
+            this.d_x = d_x;
+            this.d_y = d_y;
+        };
+        Inherit(Ball,Gameitems);
+        function Enemy(POS_x,POS_y) {
+            this.POS_x = POS_x;
+            this.POS_y = POS_y;
+        };
+        Inherit(Enemy,Gameitems);
+
+
+        function drawRect () {
+            ctx.fillStyle = 'black';
+            ctx.clearRect(0,0,400,400);
+            ctx.fillRect(x, y, 50, 50);
+    };
+</script>
+
+</body>
+</html>
